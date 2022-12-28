@@ -1,10 +1,7 @@
-pipeline {
-  agent master
-  stages {
-    stage ('run ansible yml file') {
-      steps {
-        sh ansible-playbook main.yml
-      }
-    }
-  }
+node("master") {
+    
+        stage("ansible playbook execution"){
+            sh ansible-playbook main.yml
+        }
+    
 }
